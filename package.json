@@ -1,0 +1,27 @@
+{
+  "name": "ad-personalization-engine",
+  "version": "2.1.0",
+  "description": "Netflix Ads Platform - Ad Personalization Engine for targeted advertising and audience insights",
+  "private": true,
+  "author": "Netflix Ads Platform Team <ads-platform@netflix.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["netflix", "ads", "personalization", "targeting", "analytics"],
+  "dependencies": {
+    "@apollo/client": "^4.0.9",
+    "graphql": "^16.12.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.3",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2"
+  }
+}

@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #141414;
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #141414;
+}
+
+.app-header {
+  background: #000000;
+  border-bottom: 3px solid #E50914;
+  padding: 24px 20px;
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.netflix-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.logo-svg {
+  height: 32px;
+  width: auto;
+}
+
+.platform-badge {
+  background: #E50914;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.app-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.app-description {
+  font-size: 14px;
+  color: #b3b3b3;
+  margin: 0;
+  font-weight: 400;
+}
+
+.app-main {
+  flex: 1;
+  padding: 40px 20px;
+  background: #141414;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+  gap: 24px;
+}
+
+.toggle-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1f1f1f;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #ffffff;
+  border: 1px solid #333333;
+  transition: all 0.2s ease;
+}
+
+.toggle-control:hover {
+  background: #2f2f2f;
+  border-color: #E50914;
+}
+
+.toggle-control input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #E50914;
+}
+
+.info-section {
+  background: #1f1f1f;
+  border-radius: 8px;
+  padding: 40px;
+  margin-top: 48px;
+  border: 1px solid #333333;
+}
+
+.info-section h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 32px 0;
+  text-align: center;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.info-card {
+  text-align: center;
+  padding: 24px;
+  background: #141414;
+  border-radius: 8px;
+  border: 1px solid #333333;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  background: #2f2f2f;
+  border-color: #E50914;
+  transform: translateY(-4px);
+}
+
+.info-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.info-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+.info-card p {
+  font-size: 13px;
+  color: #b3b3b3;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tech-stack {
+  background: #1f1f1f;
+  border-radius: 8px;
+  padding: 32px;
+  margin-top: 24px;
+  text-align: center;
+  border: 1px solid #333333;
+}
+
+.tech-stack h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+}
+
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.tech-badge {
+  background: #E50914;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.tech-badge:hover {
+  background: #f40612;
+  transform: scale(1.05);
+}
+
+.app-footer {
+  background: #000000;
+  border-top: 3px solid #E50914;
+  padding: 24px 20px;
+  text-align: center;
+  color: #b3b3b3;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.footer-meta {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #808080;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 32px;
+  }
+
+  .app-description {
+    font-size: 14px;
+  }
+
+  .app-header {
+    padding: 24px 20px;
+  }
+
+  .app-main {
+    padding: 24px 16px;
+  }
+
+  .info-section {
+    padding: 24px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-stack {
+    padding: 24px;
+  }
+}

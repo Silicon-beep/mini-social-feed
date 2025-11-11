@@ -1,0 +1,158 @@
+# GraphQL Schema for Ad Personalization Engine
+# This schema can be used to implement a backend GraphQL server
+
+"""
+Ad Category Enum
+"""
+enum AdCategory {
+  TECHNOLOGY
+  FASHION
+  FOOD
+  TRAVEL
+  GAMING
+  FITNESS
+  ENTERTAINMENT
+  EDUCATION
+}
+
+"""
+Ad Type - Represents an advertisement
+"""
+type Ad {
+  id: ID!
+  title: String!
+  description: String!
+  imageUrl: String!
+  category: AdCategory!
+  tags: [String!]!
+  targetAudience: [String!]!
+  clickUrl: String!
+  priority: Int!
+  score: Int
+  matchReasons: [String!]
+}
+
+"""
+View Event - Tracks when a user views an ad
+"""
+type ViewEvent {
+  adId: ID!
+  category: AdCategory!
+  timestamp: Float!
+  duration: Int!
+}
+
+"""
+Click Event - Tracks when a user clicks an ad
+"""
+type ClickEvent {
+  adId: ID!
+  category: AdCategory!
+  timestamp: Float!
+}
+
+"""
+Category Preference - User's interest level in a category
+"""
+type CategoryPreference {
+  category: AdCategory!
+  score: Int!
+}
+
+"""
+User Behavior - Complete user interaction history
+"""
+type UserBehavior {
+  views: [ViewEvent!]!
+  clicks: [ClickEvent!]!
+  preferences: [CategoryPreference!]!
+}
+
+"""
+Standard response for tracking mutations
+"""
+type TrackingResponse {
+  success: Boolean!
+  message: String!
+}
+
+"""
+Root Query Type
+"""
+type Query {
+  """
+  Get personalized ads for a user based on their behavior
+  """
+  personalizedAds(
+    userId: ID!
+    limit: Int = 10
+    categories: [String!]
+  ): [Ad!]!
+
+  """
+  Get ads filtered by category
+  """
+  adsByCategory(
+    category: String!
+    limit: Int = 10
+  ): [Ad!]!
+
+  """
+  Get a user's complete behavior profile
+  """
+  userBehavior(userId: ID!): UserBehavior!
+
+  """
+  Get trending/popular ads
+  """
+  trendingAds(limit: Int = 5): [Ad!]!
+
+  """
+  Get a single ad by ID
+  """
+  ad(id: ID!): Ad
+}
+
+"""
+Root Mutation Type
+"""
+type Mutation {
+  """
+  Track when a user views an ad
+  """
+  trackAdView(
+    userId: ID!
+    adId: ID!
+    category: String!
+    duration: Int = 1
+  ): TrackingResponse!
+
+  """
+  Track when a user clicks an ad
+  """
+  trackAdClick(
+    userId: ID!
+    adId: ID!
+    category: String!
+  ): TrackingResponse!
+
+  """
+  Clear all user behavior data
+  """
+  clearUserBehavior(userId: ID!): TrackingResponse!
+}
+
+"""
+Subscription Type (Optional - for real-time updates)
+"""
+type Subscription {
+  """
+  Subscribe to new personalized ads for a user
+  """
+  personalizedAdsUpdated(userId: ID!): [Ad!]!
+
+  """
+  Subscribe to user behavior changes
+  """
+  userBehaviorUpdated(userId: ID!): UserBehavior!
+}
